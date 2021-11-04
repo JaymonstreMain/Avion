@@ -188,3 +188,75 @@ public class Utility {
         return reponseInt;
     }
 }
+
+
+
+------------------------------------------------------------------------------------------- Avion Test-----------------------------------------------------------
+
+public class AvionTest {
+    public AvionTest() {
+        Avion avion = new Avion(100);
+
+        Passager p = new Passager(15, 110);
+        System.out.println(p);
+        avion.addPassager(p);
+
+        p = new Passager(55, 210);
+        System.out.println(p);
+        avion.addPassager(p);
+
+        System.out.println(avion);
+    }
+
+    public static void main(String[] args) {
+        new AvionTest();
+    }
+}
+
+
+------------------------------------------------------------------------------------------- Avion-----------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+import java.util.Arrays;
+
+public class Avion {
+    private Passager[] tabPassager;
+    private int nbPassager;
+
+    public Avion(int nbPassagerMax) {
+        tabPassager = new Passager[nbPassagerMax];
+        nbPassager = 0;
+    }
+
+    public void addPassager(Passager p) {
+        tabPassager[nbPassager++] = p;
+    }
+
+    @Override
+    public String toString() {
+        return "Avion{" +
+                "\n nbPassager=" + nbPassager +
+                "\n Passager dans l'avion=" + getPassagers() +
+                "\n tabPassager=" + Arrays.toString(tabPassager) +
+                "\n}";
+    }
+
+    private String getPassagers() {
+        String str = "";
+        for (int i = 0; i < nbPassager; i++) {
+            str += ", " + tabPassager[i].toString();
+        }
+        return str;
+    }
+}
